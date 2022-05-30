@@ -1,4 +1,3 @@
-
 function calcule(){
     var velocidade = document.getElementById("velocidadeInicial").value;
     var altura = (velocidade**2)/20;

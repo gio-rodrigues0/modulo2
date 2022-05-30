@@ -3,12 +3,14 @@ var newInformation = {
     information: ""
 };
 
+
 function addNewInformation(){
-    var discription = document.getElementById("informartion").value;
+    var discription = document.getElementById("information").value;
     var informations = Object.create(newInformation);
     informations.information = discription;
-    listaInformations.push(newInformation);
-    }
+    listaInformations.push(informations);
+    console.log(listaInformations);
+};
 
 function showInformation(){
     var lista = "<table>";
@@ -16,7 +18,14 @@ function showInformation(){
         lista += "<tr>";
         lista += "<td>" + listaInformations[i].information + "</td>";
         lista += "</tr>";
-    }
-    lista += "</table>"
+    };
+    lista += "</table>";
     document.getElementById("lista").innerHTML = lista;
+};
+
+function addAndShow(){
+    console.log(listaInformations);
+    addNewInformation();
+    showInformation();
 }
+
