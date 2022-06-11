@@ -29,7 +29,9 @@ app.use(express.json());
 //ENDPOINTS API
 
 //adicionar informações
-app.post("/informations", (request, response) => {
+app.post("/informations", urlencodedParser, (request, response) => {
+    response.setHeader("Access-Control-Allow-Origin", "*");
+
     let db = new sqlite3.Database(DBPATH);
     let sql =
       "INSERT INTO Informações (Dados) VALUES(?)";
@@ -47,7 +49,9 @@ app.post("/informations", (request, response) => {
   });
 
 //retornar informações
-app.get("/informations", (request, response) => {
+app.get("/informations", urlencodedParser, (request, response) => {
+    response.setHeader("Access-Control-Allow-Origin", "*");
+
     let db = new sqlite3.Database(DBPATH);
     let sql = "SELECT * FROM Informações";
   
